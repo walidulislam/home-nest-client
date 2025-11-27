@@ -22,6 +22,7 @@ const Login = () => {
         navigate(location.state || "/");
       })
       .catch((err) => {
+        setLoading(false);
         toast.error(err.message);
       });
   };

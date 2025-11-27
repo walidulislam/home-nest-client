@@ -1,8 +1,21 @@
-import React from "react";
+import React, { use } from "react";
 import logoImg from "/logo.png";
 import { Link, NavLink } from "react-router";
+import toast from "react-hot-toast";
+import { PropagateLoader } from "react-spinners";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
+  const { user, loading, logOutUser } = use(AuthContext);
+  const handelLogOut = () => {
+    logOutUser()
+      .then(() => {
+        toast.success("LogOut Successful..➜]");
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm px-4 md:px-10 lg:px-20">
@@ -143,12 +156,42 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end space-x-2">
-          <Link to="/login" className="button">
-            Login
-          </Link>
-          <Link to="/signup" className="button">
-            Signup
-          </Link>
+          {loading ? (
+            <PropagateLoader color="#9F62F2" />
+          ) : user ? (
+            <div className="dropdown dropdown-end">
+              <img
+                tabIndex={0}
+                className="h-12 w-12 mx-auto rounded-full border-gray-300 border-2 shadow-md shadow-cyan-800 cursor-pointer "
+                src={user?.photoURL || "https://avatar.iran.liara.run/public/3"}
+              />
+              <ul
+                tabIndex="-1"
+                className="dropdown-content menu bg-gradient-to-br from-purple-600 via-indigo-400 to-purple-900 rounded-box z-50 w-60 p-3 shadow-lg space-y-1.5"
+              >
+                <li className="font-semibold text-white">
+                  {" "}
+                  {user?.displayName}
+                </li>
+                <li className=" text-white"> {user?.email}</li>
+                <button
+                  onClick={handelLogOut}
+                  className="button w-full justify-center"
+                >
+                  Logout
+                </button>
+              </ul>
+            </div>
+          ) : (
+            <>
+              <Link to="/login" className="button">
+                Login
+              </Link>
+              <Link to="/signup" className="button">
+                Signup
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

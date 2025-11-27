@@ -51,10 +51,8 @@ const Signup = () => {
   };
   const handelGoogleLogIn = () => {
     logInGoogle()
-      .then((res) => {
+      .then(() => {
         setLoading(false);
-        console.log(res);
-
         toast.success("Google Sign Up Successful..🌸");
         navigate("/");
       })
@@ -139,7 +137,7 @@ const Signup = () => {
                 className="text-purple-200 hover:text-white font-medium underline"
               >
                 Login
-              </Link>
+              </Link> 
             </p>
           </div>
         </form>
