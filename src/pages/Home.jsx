@@ -5,6 +5,7 @@ import FeaturedPropertiesCard from "../component/FeaturedPropertiesCard";
 import WhyChooseUs from "../component/WhyChooseUs";
 import toast from "react-hot-toast";
 import Testimonials from "../component/Testimonials";
+import HowItWorks from "../component/HowItWorks";
 const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -175,6 +176,7 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
       </div>
       <WhyChooseUs></WhyChooseUs>
       <Testimonials></Testimonials>
+      <HowItWorks></HowItWorks>
     </div>
   );
 };
