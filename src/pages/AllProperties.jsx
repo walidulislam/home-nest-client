@@ -1,21 +1,3 @@
-// // import axios from 'axios';
-// import React, { useState } from 'react';
-// import useData from '../Hooks/useData';
-// import PropertiesCard from '../component/PropertiesCard';
-
-// const AllProperties = () => {
-//     const {data, loading} = useData();
-
-//     return (
-//         <div>
-//             {
-//                 data.map((property) => <PropertiesCard key={property._id} property={property} > </PropertiesCard>)
-//             }
-//         </div>
-//     );
-// };
-
-// export default AllProperties;
 
 import React, { useState } from "react";
 import useData from "../Hooks/useData";

@@ -2,6 +2,7 @@ import { MapPinCheckInside, User } from "lucide-react";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router";
 const FeaturedPropertiesCard = ({ property }) => {
   const {
     imageLink,
@@ -40,9 +41,11 @@ const FeaturedPropertiesCard = ({ property }) => {
           <User /> {userName}
         </p>
         <div className="flex justify-center">
-          <button className="button" type="submit">
-            View Details
-          </button>
+          <Link to={`/details/${property._id}`}>
+            <button className="button" type="submit">
+              View Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>

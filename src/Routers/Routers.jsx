@@ -6,6 +6,7 @@ import Signup from "../pages/Signup";
 import AddProperty from "../pages/AddProperty";
 import PrivateRoutes from "./PrivateRoutes";
 import AllProperties from "../pages/AllProperties";
+import PropertyDetails from "../pages/PropertyDetails";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,14 @@ export const router = createBrowserRouter([
       {
         path: "/all-properties",
         Component: AllProperties,
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoutes>
+            <PropertyDetails></PropertyDetails>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/add-properties",
