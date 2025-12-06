@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useParams } from "react-router";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { AuthContext } from "../contexts/AuthContext";
 
 const PropertyDetails = () => {
   const { id } = useParams();
@@ -32,6 +33,7 @@ const PropertyDetails = () => {
   }, []);
   const [rating, setRating] = useState(0);
   const [reviewText, setReviewText] = useState("");
+  const {user} = use(AuthContext);
   const handleReviewSubmit = (e) => {
     e.preventDefault();
 
@@ -39,8 +41,8 @@ const PropertyDetails = () => {
       propertyId: id,
       propertyName,
       propertyThumbnail: imageLink,
-      reviewerName: userName,
-      reviewerEmail: userEmail,
+      reviewerName: user?.displayName,
+      reviewerEmail: user?.email,
       rating,
       reviewText,
       reviewDate: new Date(),
