@@ -3,12 +3,55 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router";
-const MyPropertiesCard = ({ property }) => {
-  const { imageLink, propertyName, category, price, location, postedDate } =
-    property;
+import axios from "axios";
+import Swal from "sweetalert2";
+const MyPropertiesCard = ({ property, properties, setProperties }) => {
+  const {
+    _id,
+    imageLink,
+    propertyName,
+    category,
+    price,
+    location,
+    postedDate,
+  } = property;
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
+  const handelDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/delete-property/${id}`)
+          .then(() => {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your property has been deleted.",
+              icon: "success",
+            });
+            const filteredProperties = properties.filter((p) => p._id !== id);
+            setProperties(filteredProperties);
+          })
+          .catch((err) => {
+            Swal.fire({
+              title: "Error!",
+              text: `Something went wrong: ${err.message}`,
+              icon: "error",
+            });
+          });
+      }
+    });
+  };
+
   return (
     <div data-aos="fade-up" className="card h-120 md:h-150">
       <div className="p-4 md:p-6 space-y-3.5">
@@ -39,35 +82,38 @@ const MyPropertiesCard = ({ property }) => {
           {/* Update button.... */}
           <div className="flex justify-center">
             <Link to={`/update-property/${property?._id}`}>
-            <button className="text-[8px] font-semibold cursor-pointer relative bg-white/10 py-2 rounded-full min-w-[8.5rem] min-h-[2.92rem] group max-w-11 max-h-12 flex items-center justify-start hover:bg-green-400 transition-all duration-[0.8s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)] shadow-[inset_1px_2px_5px_#00000080]">
-              <div className="absolute flex px-1 py-0.5 justify-start items-center inset-0">
-                <div className="w-[0%] group-hover:w-full transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)]" />
-                <div className="rounded-full shrink-0 flex justify-center items-center shadow-[inset_1px_-1px_3px_0_black] h-full aspect-square bg-green-400 transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)] group-hover:bg-black">
-                  <div className="size-[0.8rem] text-black group-hover:text-white group-hover:-rotate-45 transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 16 16"
-                      height="100%"
-                      width="100%"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"
-                      />
-                    </svg>
+              <button className="text-[8px] font-semibold cursor-pointer relative bg-white/10 py-2 rounded-full min-w-[8.5rem] min-h-[2.92rem] group max-w-11 max-h-12 flex items-center justify-start hover:bg-green-400 transition-all duration-[0.8s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)] shadow-[inset_1px_2px_5px_#00000080]">
+                <div className="absolute flex px-1 py-0.5 justify-start items-center inset-0">
+                  <div className="w-[0%] group-hover:w-full transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)]" />
+                  <div className="rounded-full shrink-0 flex justify-center items-center shadow-[inset_1px_-1px_3px_0_black] h-full aspect-square bg-green-400 transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)] group-hover:bg-black">
+                    <div className="size-[0.8rem] text-black group-hover:text-white group-hover:-rotate-45 transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 16 16"
+                        height="100%"
+                        width="100%"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className=" pl-[3.4rem] pr-[1.1rem] group-hover:pl-[1.1rem] group-hover:pr-[3.4rem] transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)] group-hover:text-black text-teal-600">
-                Update
-              </div>
-            </button>
+                <div className=" pl-[3.4rem] pr-[1.1rem] group-hover:pl-[1.1rem] group-hover:pr-[3.4rem] transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)] group-hover:text-black text-teal-600">
+                  Update
+                </div>
+              </button>
             </Link>
           </div>
           {/* Delete button.... */}
           <div className="flex justify-center">
-            <button className="group relative flex h-11 w-14 flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-red-800 bg-red-400 hover:bg-red-600">
+            <button
+              onClick={() => handelDelete(_id)}
+              className="group relative flex h-11 w-14 flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-red-800 bg-red-400 hover:bg-red-600"
+            >
               <svg
                 viewBox="0 0 1.625 1.625"
                 className="absolute -top-7 fill-white delay-100 group-hover:top-6 group-hover:animate-[spin_1.4s] group-hover:duration-1000"

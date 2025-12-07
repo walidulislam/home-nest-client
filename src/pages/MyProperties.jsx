@@ -180,6 +180,8 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
           <MyPropertiesCard
             key={property._id}
             property={property}
+            properties={properties}
+            setProperties={setProperties}
           ></MyPropertiesCard>
         ))}
       </div>
