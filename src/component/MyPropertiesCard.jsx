@@ -38,6 +38,7 @@ const MyPropertiesCard = ({ property }) => {
         <div className="flex justify-around items-center">
           {/* Update button.... */}
           <div className="flex justify-center">
+            <Link to={`/update-property/${property?._id}`}>
             <button className="text-[8px] font-semibold cursor-pointer relative bg-white/10 py-2 rounded-full min-w-[8.5rem] min-h-[2.92rem] group max-w-11 max-h-12 flex items-center justify-start hover:bg-green-400 transition-all duration-[0.8s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)] shadow-[inset_1px_2px_5px_#00000080]">
               <div className="absolute flex px-1 py-0.5 justify-start items-center inset-0">
                 <div className="w-[0%] group-hover:w-full transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)]" />
@@ -62,6 +63,7 @@ const MyPropertiesCard = ({ property }) => {
                 Update
               </div>
             </button>
+            </Link>
           </div>
           {/* Delete button.... */}
           <div className="flex justify-center">
