@@ -10,11 +10,13 @@ import PropertyDetails from "../pages/PropertyDetails";
 import MyRatings from "../pages/MyRatings";
 import MyProperties from "../pages/MyProperties";
 import UpdateProperty from "../pages/UpdateProperty";
+import ErrorPages from "../pages/ErrorPages";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPages></ErrorPages>,
     children: [
       {
         index: true,
