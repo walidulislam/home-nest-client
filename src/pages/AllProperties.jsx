@@ -1,12 +1,25 @@
-
-import React, { useState } from "react";
-import useData from "../Hooks/useData";
+import React, { useEffect, useState } from "react";
 import PropertiesCard from "../component/PropertiesCard";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const AllProperties = () => {
-  const { data, loading } = useData();
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [searching, setSearching] = useState(false);
+  const [sortPrice, setSortPrice] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/all-properties?price=${sortPrice}`)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => toast.error(error.message))
+      .finally(() => setLoading(false));
+  }, [sortPrice]);
+
   const term = search.trim().toLocaleLowerCase();
   const searchedProperty = term
     ? data?.filter((data) =>
@@ -29,37 +42,48 @@ const AllProperties = () => {
         <h2 className="text-xl md:text-2x text-[#001931] font-semibold">
           ({searchedProperty?.length}) Properties Found
         </h2>
-        <label className="input">
-          <svg
-            className="h-[1em] opacity-50"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
+        <div className="flex gap-3">
+          <select
+            value={sortPrice}
+            onChange={(e) => setSortPrice(e.target.value)}
+            className="select select-bordered w-44"
           >
-            <g
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              strokeWidth="2.5"
-              fill="none"
-              stroke="currentColor"
+            <option value="none">Sort by Price ⬇️</option>
+            <option value="price-desc">High-Low</option>
+            <option value="price-asc">Low-High</option>
+          </select>
+          <label className="input">
+            <svg
+              className="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
             >
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.3-4.3"></path>
-            </g>
-          </svg>
-          <input
-            value={search}
-            onChange={(e) => {
-              setSearching(true);
-              setSearch(e.target.value);
-              setTimeout(() => {
-                setSearching(false);
-              }, 200);
-            }}
-            type="search"
-            required
-            placeholder="Search"
-          />
-        </label>
+              <g
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                strokeWidth="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input
+              value={search}
+              onChange={(e) => {
+                setSearching(true);
+                setSearch(e.target.value);
+                setTimeout(() => {
+                  setSearching(false);
+                }, 200);
+              }}
+              type="search"
+              required
+              placeholder="Search"
+            />
+          </label>
+        </div>
       </div>
       {loading || searching ? (
         <div className="h-[97vh] flex items-center justify-center">
