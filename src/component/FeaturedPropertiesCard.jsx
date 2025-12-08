@@ -24,9 +24,7 @@ const FeaturedPropertiesCard = ({ property }) => {
           src={imageLink}
           alt=""
         />
-        <h2 className="font-semibold text-2xl lg:text-3xl text-gray-800 dark:text-gray-200">
-          {propertyName}
-        </h2>
+        <h2 className="font-semibold text-2xl lg:text-3xl ">{propertyName}</h2>
         <p className="text-sm text-gray-600">{description}</p>
         <div className="flex justify-between items-center">
           <p className="font-medium md:text-lg badge badge-soft badge-primary">

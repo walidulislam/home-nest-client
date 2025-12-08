@@ -60,7 +60,7 @@ const MyPropertiesCard = ({ property, properties, setProperties }) => {
           src={imageLink}
           alt=""
         />
-        <h2 className="font-semibold text-2xl lg:text-3xl text-gray-800 dark:text-gray-200">
+        <h2 className="font-semibold text-2xl lg:text-3xl ">
           {propertyName}
         </h2>
         <div className="flex justify-between items-center">

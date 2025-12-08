@@ -161,7 +161,7 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
   if (properties.length === 0) {
     return (
       <div className="flex flex-col text-center items-center justify-center h-screen p-10 md:p-20 space-y-4">
-        <h2 className="font-semibold text-2xl md:text-5xl text-[#001931] dark:text-[#E8EEF5]">
+        <h2 className="font-semibold text-2xl md:text-5xl  ">
           You have not added any properties yet !
         </h2>
         <p className="text-sm md:text-xl text-[#627382]">
@@ -172,7 +172,7 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
   }
   return (
     <div className="px-6 md:px-10 lg:px-20 py-10 lg:py-20 space-y-4 md:space-y-10">
-      <h1 className="text-[#001931] dark:text-[#E8EEF5] font-bold text-4xl lg:text-5xl text-center">
+      <h1 className="  font-bold text-4xl lg:text-5xl text-center">
         My Properties
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

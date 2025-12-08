@@ -52,7 +52,7 @@ const AddProperty = () => {
         <div className="relative">
           <div className="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-900 via-violet-900 to-black shadow-lg animate-pulse"></div>
           <div className="bg-[#FFFFF4] dark:bg-[#1c1c1c] p-6 rounded-xl shadow-2xl w-[340px] lg:w-[480px] relative z-10">
-            <h2 className="text-center text-3xl font-bold mb-8 text-gray-800 dark:text-gray-200">
+            <h2 className="text-center text-3xl font-bold mb-8 ">
               Add Property
             </h2>
             <form className="space-y-5" onSubmit={handelSubmit}>

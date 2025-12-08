@@ -29,7 +29,7 @@ const AllProperties = () => {
   return (
     <div className="px-6 md:px-10 lg:px-20 py-10 lg:py-20 space-y-4 md:space-y-10">
       <div className="space-y-4">
-        <h1 className="text-[#001931] dark:text-[#E8EEF5] font-bold text-4xl lg:text-5xl text-center">
+        <h1 className="  font-bold text-4xl lg:text-5xl text-center">
           All Properties
         </h1>
         <p className="text-center text-[#627382] text-sm md:text-lg">
@@ -39,7 +39,7 @@ const AllProperties = () => {
         </p>
       </div>
       <div className="flex flex-col md:flex-row justify-between items-center space-y-6">
-        <h2 className="text-xl md:text-2x text-[#001931] dark:text-[#E8EEF5] font-semibold">
+        <h2 className="text-xl md:text-2x   font-semibold">
           ({searchedProperty?.length}) Properties Found
         </h2>
         <div className="flex gap-3">
@@ -220,7 +220,7 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
       ) : searchedProperty?.length === 0 ? (
         <div>
           <div className="flex flex-col text-center items-center justify-center h-screen p-10 md:p-20 space-y-4">
-            <h2 className="font-semibold text-2xl md:text-5xl text-[#001931] dark:text-[#E8EEF5]">
+            <h2 className="font-semibold text-2xl md:text-5xl  ">
               OPPS!! PROPERTY NOT FOUND
             </h2>
             <p className="text-sm md:text-xl text-[#627382]">

@@ -120,7 +120,7 @@ const Signup = () => {
           <button
             onClick={handelGoogleLogIn}
             type="button"
-            className="flex items-center justify-center gap-3 bg-white text-gray-800 dark:text-gray-200 px-5 py-2 rounded-xl w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
+            className="flex items-center justify-center gap-3 bg-white  px-5 py-2 rounded-xl w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
           >
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"

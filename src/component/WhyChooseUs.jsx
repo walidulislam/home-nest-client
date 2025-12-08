@@ -9,7 +9,7 @@ const WhyChooseUs = () => {
   }, []);
   return (
     <div data-aos="fade-up" className="p-4 lg:p-0">
-      <h1 className="text-[#001931] dark:text-[#E8EEF5] font-bold text-4xl lg:text-5xl text-center">
+      <h1 className="  font-bold text-4xl lg:text-5xl text-center">
         Why Choose Us
       </h1>
       <div className="container mx-auto text-center my-8 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-20">

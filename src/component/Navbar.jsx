@@ -7,15 +7,26 @@ import { AuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
   const { user, loading, logOutUser } = use(AuthContext);
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    return savedTheme === "dark";
+  });
+
+  
+useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }, []);
 
   const handleThemeChange = () => {
-    setIsChecked((prev) => !prev);
+    setIsChecked((prev) => {
+      const newState = !prev;
+      const theme = newState ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+      document.documentElement.setAttribute("data-theme", theme);
+      return newState;
+    });
   };
-  useEffect(() => {
-    const theme = isChecked ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [isChecked]);
 
   const handelLogOut = () => {
     logOutUser()
@@ -183,9 +194,10 @@ const Navbar = () => {
             </svg>
             <input
               type="checkbox"
+              checked={isChecked}
               value="synthwave"
               className="toggle theme-controller"
-              onClick={handleThemeChange}
+              onChange={handleThemeChange}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
