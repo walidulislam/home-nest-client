@@ -6,10 +6,45 @@ body {
   font-family: "Inter", sans-serif;
   background: #f3f7e9;
 }
+/* Define default colors */
+:root {
+  --bg-color: #f3f7e9;
+  --text-color: #1a202c;
+  --card-bg: #ffffff;
+  --card-text: #1a202c;
+  --badge-bg: #edf2f7;
+  --badge-text: #1a202c;
+}
 
+/* Dark mode colors */
+[data-theme="dark"] {
+  --bg-color: #0a0f1a;
+  --text-color: #e5e7eb;
+  --card-bg: #1f2a38;
+  --card-text: #f3f4f6;
+  --badge-bg: #374151;
+  --badge-text: #e5e7eb;
+}
+
+/* Apply variables globally */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+}
+
+.badge {
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+}
 
 [data-theme="dark"] body {
   background-color: #121d34; 
+  /* color: #636466; */
 }
 /* Card style...... */
 /* From Uiverse.io by bhaveshxrawat */ 
