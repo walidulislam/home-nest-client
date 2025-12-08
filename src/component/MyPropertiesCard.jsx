@@ -31,7 +31,7 @@ const MyPropertiesCard = ({ property, properties, setProperties }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/delete-property/${id}`)
+          .delete(`https://home-nest-server-ashen.vercel.app/delete-property/${id}`)
           .then(() => {
             Swal.fire({
               title: "Deleted!",
@@ -60,7 +60,7 @@ const MyPropertiesCard = ({ property, properties, setProperties }) => {
           src={imageLink}
           alt=""
         />
-        <h2 className="font-semibold text-2xl lg:text-3xl text-gray-800">
+        <h2 className="font-semibold text-2xl lg:text-3xl text-gray-800 dark:text-gray-200">
           {propertyName}
         </h2>
         <div className="flex justify-between items-center">

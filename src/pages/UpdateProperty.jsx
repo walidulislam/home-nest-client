@@ -21,7 +21,7 @@ const UpdateProperty = () => {
   } = data;
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/properties/${id}`)
+      .get(`https://home-nest-server-ashen.vercel.app/properties/${id}`)
       .then((res) => {
         setData(res.data);
         setCategories(res.data.category || "");
@@ -55,7 +55,7 @@ const UpdateProperty = () => {
       userProfilePhoto,
     };
     axios
-      .put(`http://localhost:3000/update-property/${id}`, propertyData)
+      .put(`https://home-nest-server-ashen.vercel.app/update-property/${id}`, propertyData)
       .then(() => {
         toast.success("Property updated successfully!");
         navigate(`/details/${id}`);
@@ -69,26 +69,26 @@ const UpdateProperty = () => {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-900 via-violet-700 to-black">
         <div className="relative">
           <div className="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-900 via-violet-900 to-black shadow-lg animate-pulse"></div>
-          <div className="bg-[#FFFFF4] p-6 rounded-xl shadow-2xl w-[340px] lg:w-[480px] relative z-10">
-            <h2 className="text-center text-3xl font-bold mb-8 text-gray-800">
+          <div className="bg-[#FFFFF4] dark:bg-[#1c1c1c] p-6 rounded-xl shadow-2xl w-[340px] lg:w-[480px] relative z-10">
+            <h2 className="text-center text-3xl font-bold mb-8 text-gray-800 dark:text-gray-200">
               Update Property
             </h2>
             <form className="space-y-5" onSubmit={handelUpdate}>
               <input
-                className="w-full h-12 border-2 border-cyan-600 px-3 rounded-lg"
+                className="w-full h-12 border-2 border-cyan-600 dark:text-white px-3 rounded-lg"
                 placeholder="Property Name"
                 name="propertyName"
                 type="text"
                 defaultValue={propertyName}
               />
               <textarea
-                className="w-full h-24 border-2 border-cyan-600 px-3 py-2 rounded-lg"
+                className="w-full h-24 border-2 border-cyan-600 dark:text-white px-3 py-2 rounded-lg"
                 placeholder="Description"
                 name="description"
                 defaultValue={description}
               ></textarea>
               <select
-                className="w-full h-12 border-2 border-cyan-600 px-3 rounded-lg"
+                className="w-full h-12 border-2 border-cyan-600 dark:text-gray-500 px-3 rounded-lg"
                 name="category"
                 value={categories}
                 onChange={(e) => setCategories(e.target.value)}
@@ -100,28 +100,28 @@ const UpdateProperty = () => {
                 <option value="Land">Land</option>
               </select>
               <input
-                className="w-full h-12 border-2 border-cyan-600 px-3 rounded-lg"
+                className="w-full h-12 border-2 border-cyan-600 dark:text-white px-3 rounded-lg"
                 placeholder="Price"
                 name="price"
                 type="number"
                 defaultValue={price}
               />
               <input
-                className="w-full h-12 border-2 border-cyan-600 px-3 rounded-lg"
+                className="w-full h-12 border-2 border-cyan-600 dark:text-white px-3 rounded-lg"
                 placeholder="Location"
                 name="location"
                 type="text"
                 defaultValue={location}
               />
               <input
-                className="w-full h-12 border-2 border-cyan-600 px-3 rounded-lg"
+                className="w-full h-12 border-2 border-cyan-600 dark:text-white px-3 rounded-lg"
                 placeholder="Image Link"
                 name="image"
                 type="text"
                 defaultValue={imageLink}
               />
               <input
-                className="w-full h-12 border border-amber-500 px-3 rounded-lg bg-gray-100"
+                className="w-full h-12 border border-amber-500 dark:text-gray-900 px-3 rounded-lg bg-gray-100"
                 placeholder="User Email"
                 readOnly
                 name="userEmail"
@@ -129,7 +129,7 @@ const UpdateProperty = () => {
                 defaultValue={userEmail}
               />
               <input
-                className="w-full h-12 border border-amber-500 px-3 rounded-lg bg-gray-100"
+                className="w-full h-12 border border-amber-500 dark:text-gray-900 px-3 rounded-lg bg-gray-100"
                 placeholder="User Name"
                 readOnly
                 name="userName"

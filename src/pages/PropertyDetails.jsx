@@ -23,7 +23,7 @@ const PropertyDetails = () => {
   } = data;
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/properties/${id}`)
+      .get(`https://home-nest-server-ashen.vercel.app/properties/${id}`)
       .then((res) => {
         setData(res.data);
       })
@@ -49,7 +49,7 @@ const PropertyDetails = () => {
     };
 
     axios
-      .post("http://localhost:3000/add-ratings", reviewData)
+      .post("https://home-nest-server-ashen.vercel.app/add-ratings", reviewData)
       .then(() => {
         toast.success("Review submitted!");
         setRating(3);
@@ -101,7 +101,7 @@ const PropertyDetails = () => {
         </div>
       </div>
       <div className="mt-10 bg-amber-50 rounded-xl shadow-lg max-w-5xl mx-auto p-5 my-10">
-        <h2 className="text-[#001931] font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4 mt-3">Ratings & Reviews</h2>
+        <h2 className="text-[#001931] dark:text-[#E8EEF5] font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4 mt-3">Ratings & Reviews</h2>
         <form onSubmit={handleReviewSubmit}>
           <p className="text-sm font-semibold">Rating:</p>
           <Rating

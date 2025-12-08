@@ -24,7 +24,7 @@ const FeaturedPropertiesCard = ({ property }) => {
           src={imageLink}
           alt=""
         />
-        <h2 className="font-semibold text-2xl lg:text-3xl text-gray-800">
+        <h2 className="font-semibold text-2xl lg:text-3xl text-gray-800 dark:text-gray-200">
           {propertyName}
         </h2>
         <p className="text-sm text-gray-600">{description}</p>

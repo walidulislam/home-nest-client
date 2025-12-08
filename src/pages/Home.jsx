@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/latest-properties")
+      .get("https://home-nest-server-ashen.vercel.app/latest-properties")
       .then((res) => {
         setData(res.data);
       })
@@ -28,7 +28,7 @@ const Home = () => {
       <Banner></Banner>
       {/* Featured Properties Section */}
       <div className="px-6 md:px-10 lg:px-20 py-10 lg:py-20 space-y-4 md:space-y-10">
-        <h1 className="text-[#001931] font-bold text-4xl lg:text-5xl text-center">
+        <h1 className="text-[#001931] dark:text-[#E8EEF5] font-bold text-4xl lg:text-5xl text-center">
           Featured Real Estate
         </h1>
         {loading ? (

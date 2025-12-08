@@ -29,7 +29,7 @@ const AddProperty = () => {
       userProfilePhoto,
     };
     axios
-      .post("http://localhost:3000/add-properties", propertyData)
+      .post("https://home-nest-server-ashen.vercel.app/add-properties", propertyData)
       .then(() => {
         Swal.fire({
           title: "Property added successfully!",
@@ -51,24 +51,24 @@ const AddProperty = () => {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-900 via-violet-700 to-black">
         <div className="relative">
           <div className="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-900 via-violet-900 to-black shadow-lg animate-pulse"></div>
-          <div className="bg-[#FFFFF4] p-6 rounded-xl shadow-2xl w-[340px] lg:w-[480px] relative z-10">
-            <h2 className="text-center text-3xl font-bold mb-8 text-gray-800">
+          <div className="bg-[#FFFFF4] dark:bg-[#1c1c1c] p-6 rounded-xl shadow-2xl w-[340px] lg:w-[480px] relative z-10">
+            <h2 className="text-center text-3xl font-bold mb-8 text-gray-800 dark:text-gray-200">
               Add Property
             </h2>
             <form className="space-y-5" onSubmit={handelSubmit}>
               <input
-                className="w-full h-12 border-2 border-cyan-600 px-3 rounded-lg"
+                className="w-full h-12 border-2 border-cyan-600 dark:text-white px-3 rounded-lg"
                 placeholder="Property Name"
                 name="propertyName"
                 type="text"
               />
               <textarea
-                className="w-full h-24 border-2 border-cyan-600 px-3 py-2 rounded-lg"
+                className="w-full h-24 border-2 border-cyan-600 dark:text-white px-3 py-2 rounded-lg"
                 placeholder="Description"
                 name="description"
               ></textarea>
               <select
-                className="w-full h-12 border-2 border-cyan-600 px-3 rounded-lg"
+                className="w-full h-12 border-2 border-cyan-600 dark:text-gray-500 px-3 rounded-lg"
                 name="category"
               >
                 <option value="">Select Category</option>
@@ -78,25 +78,25 @@ const AddProperty = () => {
                 <option value="Land">Land</option>
               </select>
               <input
-                className="w-full h-12 border-2 border-cyan-600 px-3 rounded-lg"
+                className="w-full h-12 border-2 border-cyan-600 dark:text-white px-3 rounded-lg"
                 placeholder="Price"
                 name="price"
                 type="number"
               />
               <input
-                className="w-full h-12 border-2 border-cyan-600 px-3 rounded-lg"
+                className="w-full h-12 border-2 border-cyan-600 dark:text-white px-3 rounded-lg"
                 placeholder="Location"
                 name="location"
                 type="text"
               />
               <input
-                className="w-full h-12 border-2 border-cyan-600 px-3 rounded-lg"
+                className="w-full h-12 border-2 border-cyan-600 dark:text-white px-3 rounded-lg"
                 placeholder="Image Link"
                 name="image"
                 type="text"
               />
               <input
-                className="w-full h-12 border border-amber-500 px-3 rounded-lg bg-gray-100"
+                className="w-full h-12 border border-amber-500 dark:text-gray-900 px-3 rounded-lg bg-gray-100"
                 placeholder="User Email"
                 readOnly
                 name="userEmail"
@@ -104,7 +104,7 @@ const AddProperty = () => {
                 value={user?.email || ""}
               />
               <input
-                className="w-full h-12 border border-amber-500 px-3 rounded-lg bg-gray-100"
+                className="w-full h-12 border border-amber-500 dark:text-gray-900 px-3 rounded-lg bg-gray-100"
                 placeholder="User Name"
                 readOnly
                 name="userName"
