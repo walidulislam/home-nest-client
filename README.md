@@ -1,16 +1,102 @@
-# React + Vite
+# 🏠 HomeNest Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern *MERN Stack* real estate platform that allows users to explore properties and find their perfect home with ease. Built with a clean UI and responsive design for a smooth user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔗 Live Links
 
-## React Compiler
+* *Live Website*: https://home-nest-website.netlify.app/
+* *Client GitHub*: https://github.com/walidulislam/home-nest-client.git
+* *Server GitHub*: https://github.com/walidulislam/home-nest-server.git
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+### ✨ Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* User Authentication (Register/Login with Email & Password)
+* Browse All Properties
+* Property Details Page with Image & Information
+* Search & Filter Properties (Location, Price, Type)
+* Wishlist / Save Property Feature
+* Responsive Design (Mobile + Desktop)
+* Smooth UI with Tailwind CSS
+* Secure API Integration
+
+---
+
+### 🛠 Technologies Used
+
+#### *Frontend*
+
+* React.js
+* React Router
+* Tailwind CSS
+* Axios
+* React Hot Toast
+* Firebase Authentication
+
+#### *Backend*
+
+* Node.js
+* Express.js
+* MongoDB + Mongoose
+* Firebase Admin SDK
+
+---
+
+### 📦 Packages Used
+
+```json
+"dependencies": {
+  "axios",
+  "react-router-dom",
+  "react-hot-toast",
+  "firebase",
+  "sweetalert2",
+  "react-icons"
+}
+```
+
+---
+
+### 🚀 Future Improvements
+
+* Property Booking System
+* Advanced Filtering Options
+* Map Integration
+* User Profile System
+
+---
+
+### 💡 Project Description
+
+HomeNest is designed to make property searching simple and efficient. Users can easily browse listings, view detailed information, and save their favorite properties for later. The platform focuses on clean design, performance, and user-friendly navigation.
+
+---
+
+### ⚙️ Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/homenest-client.git
+
+# Go to project folder
+cd homenest-client
+
+# Install dependencies
+npm install
+
+# Run the project
+npm run dev
+```
+
+---
+
+### 📌 Note
+
+Make sure to add your Firebase config and backend API URL in the environment variables before running the project.
+
+---
+
+⭐ If you like this project, feel free to give it a star on GitHub!
